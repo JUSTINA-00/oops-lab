@@ -1,0 +1,44 @@
+package experiment2;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class q2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("URK23CS1060");
+        System.out.print("Enter the number of words: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consume newline left-over
+
+        String[] words = new String[n];
+        System.out.println("Enter the words:");
+        for (int i = 0; i < n; i++) {
+            words[i] = scanner.nextLine();
+        }
+
+        HashMap<String, List<String>> anagramMap = new HashMap<>();
+
+        for (String word : words) {
+            char[] chars = word.toCharArray();
+            Arrays.sort(chars);
+            String sortedWord = new String(chars);
+
+            if (!anagramMap.containsKey(sortedWord)) {
+                anagramMap.put(sortedWord, new ArrayList<>());
+            }
+            anagramMap.get(sortedWord).add(word);
+        }
+
+        System.out.println("Anagrams in the given array are:");
+        for (List<String> anagramList : anagramMap.values()) {
+            if (anagramList.size() > 1) {
+                System.out.println(anagramList);
+            }
+        }
+
+        scanner.close();
+    }
+}
