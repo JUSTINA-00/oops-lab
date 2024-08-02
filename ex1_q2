@@ -1,0 +1,19 @@
+package experiment1;
+import java.util.Scanner;
+public class q2 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("URK23CS1060");
+        System.out.println("Enter the number of elements:");
+        int N = scanner.nextInt();
+        int sum = 0;
+        for (int i = 1; i <= N; i++) {
+            System.out.println("Enter number " + i + ":");
+            int number = scanner.nextInt();
+            sum += number;
+        }
+        System.out.println("The sum of the " + N + " numbers is: " + sum);
+        scanner.close();
+	}
+}
