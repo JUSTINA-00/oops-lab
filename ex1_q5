@@ -1,0 +1,45 @@
+package experiment1;
+import java.util.Scanner;
+public class q5 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("URK23CS1060");
+        int basicCost = 499;
+        System.out.println("Select a subscription service:");
+        System.out.println("1. Basics - 499");
+        System.out.println("2. Kids - 200 + Basics");
+        System.out.println("3. Sports - 700 + Basics");
+        System.out.println("4. English - 300 + Basics");
+        int choice = scanner.nextInt();
+        int totalCost = 0;
+        switch (choice) {
+            case 1:
+                totalCost = basicCost;
+                System.out.println("You have selected Basics subscription.");
+                break;
+            case 2:
+                totalCost = basicCost + 200;
+                System.out.println("You have selected Kids subscription.");
+                break;
+            case 3:
+                totalCost = basicCost + 700;
+                System.out.println("You have selected Sports subscription.");
+                break;
+            case 4:
+                totalCost = basicCost + 300;
+                System.out.println("You have selected English subscription.");
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+                break;
+        }
+        if (choice >= 1 && choice <= 4) {
+            System.out.println("The total cost of your subscription is: " + totalCost);
+        }
+
+        scanner.close();
+
+	}
+
+}
