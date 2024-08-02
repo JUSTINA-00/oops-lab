@@ -1,0 +1,28 @@
+package experiment1;
+import java.util.Scanner;
+public class q4 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("URK23CS1060");
+        System.out.println("Enter the basic salary of the employee:");
+        double basicSalary = scanner.nextDouble();
+        double HRA, DA, grossSalary;
+        if (basicSalary <= 10000) {
+            HRA = basicSalary * 0.20;
+            DA = basicSalary * 0.80;
+        } else if (basicSalary <= 20000) {
+            HRA = basicSalary * 0.25;
+            DA = basicSalary * 0.90;
+        } else {
+            HRA = basicSalary * 0.30;
+            DA = basicSalary * 0.95;
+        }
+        grossSalary = basicSalary + HRA + DA;
+        System.out.println("The gross salary of the employee is: " + grossSalary);
+
+        scanner.close();
+
+	}
+
+}
