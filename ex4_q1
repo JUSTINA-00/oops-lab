@@ -1,0 +1,45 @@
+package exp4;
+public class q1 {
+    private int hours;
+    private int minutes;
+    private int seconds;
+    public q1() {
+        this.hours = 0;
+        this.minutes = 0;
+        this.seconds = 0;
+    }
+    public q1(int hours, int minutes, int seconds) {
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
+        normalize();
+    }
+    public void display() {
+        System.out.printf("%02d:%02d:%02d%n", hours, minutes, seconds);
+    }
+    public void add(q1 t1, q1 t2) {
+        this.hours = t1.hours + t2.hours;
+        this.minutes = t1.minutes + t2.minutes;
+        this.seconds = t1.seconds + t2.seconds;
+        normalize();
+    }
+    private void normalize() {
+        if (seconds >= 60) {
+            minutes += seconds / 60;
+            seconds %= 60;
+        }
+        if (minutes >= 60) {
+            hours += minutes / 60;
+            minutes %= 60;
+        }
+        hours %= 24;
+    }
+    public static void main(String[] args) {
+        q1 time1 = new q1(11, 59, 59);
+        q1 time2 = new q1(0, 0, 1);
+        q1 result = new q1();
+        result.add(time1, time2);
+        System.out.print("The result of adding time1 and time2 is: ");
+        result.display();
+    }
+}
